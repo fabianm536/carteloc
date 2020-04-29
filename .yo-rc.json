@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.fabianm536"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "carteloc",
+    "packageName": "com.fabianm536",
+    "packageFolder": "com/fabianm536",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZTZiOGZjZmUzMWZhMzcxOTA1YTg5OGM0MzliM2JkYWJhMTMyOTJjMTc1OWI5YTEzZjgwNTMxY2M2YjliNTEwNWRhODIyYjMwMGM3OGQzNjJkMjg3MDRhYzMzYTVjZDVhNmU2YWZhMThlNmMwMjNhNmY3MDQ3OGNjMTY0ZDY4MzU=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1588166004781,
+    "testFrameworks": ["gatling", "cucumber", "protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": [],
+    "skipUserManagement": true
+  }
+}
