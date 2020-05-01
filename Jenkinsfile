@@ -54,7 +54,7 @@ node {
 
     def dockerImage
     stage('publish docker') {
-        withCredentials([usernamePassword(credentialsId: 'myregistry-login', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
             // assumes Jib is configured to use the environment variables
             sh "./mvnw -ntp jib:build"
         }
