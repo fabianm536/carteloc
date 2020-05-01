@@ -50,13 +50,17 @@ node {
             sh "./mvnw -ntp verify -Pprod -DskipTests"
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
+        stage('quality analysis') {
+            withSonarQubeEnv('sonar') {
+                sh "./mvnw -ntp initialize sonar:sonar"
+            }
+        }
     }
 
     def dockerImage
     stage('publish docker') {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-            // assumes Jib is configured to use the environment variables
-            sh "./mvnw -ntp jib:build"
-        }
+        // A pre-requisite to this step is to setup authentication to the docker registry
+        // https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods
+        sh "./mvnw -ntp jib:build"
     }
 }
