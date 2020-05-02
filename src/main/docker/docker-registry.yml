@@ -21,10 +21,10 @@ services:
       # you will need to generate a `htpasswd` file using :
       # docker run --entrypoint htpasswd registry:2 -Bbn admin admin > ~/volumes/registry/htpasswd
       - ~/volumes/registry/htpasswd:/auth/htpasswd:ro
-    # uncomment to enable tls
-    #- ~/volumes/registry/certs:/certs
-    # uncomment to persist data to a volume
-    #- ~/volumes/registry/data:/var/lib/registry
+      # uncomment to enable tls
+      #- ~/volumes/registry/certs:/certs
+      # uncomment to persist data to a volume
+      - ~/volumes/registry/data:/var/lib/registry
   registry-ui:
     image: konradkleine/docker-registry-frontend:v2
     environment:
