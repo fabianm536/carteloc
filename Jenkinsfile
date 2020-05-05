@@ -59,7 +59,7 @@ node {
 
     def dockerImage
     stage('publish docker') {
-        docker.withRegistry('localhost:5000', 'dockerhub-credentials') {
+        docker.withRegistry('http://localhost:5000/', 'dockerhub-credentials') {
             sh "./mvnw -ntp jib:build"
         }
     }
