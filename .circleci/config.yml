@@ -35,8 +35,26 @@ jobs:
         name: Print Java Version
         command: 'java -version'
       - run:
-          name: Print Node Version
-          command: 'node -v'
+        name: Print Node Version
+        command: 'node -v'
       - run:
-          name: Print NPM Version
-          command: 'npm -v'
+        name: Print NPM Version
+        command: 'npm -v'
+      - run:
+        name: Install Node Modules
+        command: 'npm install'
+      - save_cache:
+        paths:
+            - node
+            - node_modules
+            - ~/.m2
+      
+      - run:
+        name: Give Executable Power
+        command: 'chmod +x mvnw'
+      - run:
+        name: Run Style Checks
+        command: './mvnw -ntp checkstyle:check'
+      - run:
+        name: Clean and Verify
+        command: './mvnw -ntp clean verify'
